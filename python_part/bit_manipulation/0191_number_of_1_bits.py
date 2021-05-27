@@ -20,11 +20,14 @@ class Solution:
         google: python count bits 1
         https://www.tutorialspoint.com/number-of-1-bits-in-python
 
+        google: python turn binary string to int stack overflow
+        https://stackoverflow.com/questions/8928240/convert-base-2-binary-number-string-to-int
+
         --
         result
 
-        Runtime: 24 ms, faster than 95.27% of Python3 online submissions for Number         of 1 Bits.
-        Memory Usage: 14.2 MB, less than 36.17% of Python3 online submissions for           Number of 1 Bits.
+        Runtime: 24 ms, faster than 95.27% of Python3 online submissions for Number of 1 Bits.
+        Memory Usage: 14.2 MB, less than 36.17% of Python3 online submissions for Number of 1 Bits.
         """
         # str_n = str(n)  # FIXME: just record the mistake I made
         str_n = str(bin(n))
@@ -34,4 +37,6 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    sol.run(n=11111111111111111111111111111101)
+    print(sol.run(n=int('00000000000000000000000000001011', 2)))
+    print(sol.run(n=int('00000000000000000000000010000000', 2)))
+    print(sol.run(n=int('11111111111111111111111111111101', 2)))
