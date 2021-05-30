@@ -168,6 +168,34 @@ class Solution:
         # self.logger.info('final cur_a.__repr__(): {}:'.format(cur_a.__repr__()))
         return cur_a  # TODO: unable to think of this part
 
+    @staticmethod
+    def run_2(head_a: ListNode, head_b: ListNode) -> ListNode:
+        """
+        reference
+        
+        google: python Intersection of Two Linked Lists
+        https://zhenyu0519.github.io/2020/06/07/lc160/#example-3
+        --
+
+        Runtime: 164 ms, faster than 53.70% of Python3 online submissions for Intersection of Two Linked Lists.
+        Memory Usage: 29.2 MB, less than 91.34% of Python3 online submissions for Intersection of Two Linked Lists.
+        """
+        h1 = head_a
+        h2 = head_b
+
+        while h1 != h2:
+            if not h1:
+                h1 = head_b
+            else:
+                h1 = h1.next
+
+            if not h2:
+                h2 = head_a
+            else:
+                h2 = h2.next
+
+        return h1
+
 
 if __name__ == '__main__':
     sol = Solution()
