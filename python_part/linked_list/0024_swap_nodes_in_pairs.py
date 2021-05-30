@@ -129,6 +129,10 @@ class Solution:
         """
         dummy: 0 -> None
         dummy: 0 -> ListNode{val: 1, next: ListNode{val: 2, next: ListNode{val: 3, next: ListNode{val: 4, next: None}}}}
+        --
+
+        Runtime: 32 ms, faster than 57.67% of Python3 online submissions for Swap Nodes in Pairs.
+        Memory Usage: 14.4 MB, less than 14.65% of Python3 online submissions for Swap Nodes in Pairs.
         """
         dummy = ListNode(0)
         print('dummy:', dummy.__repr__())  # dummy: 0 -> None
@@ -161,6 +165,30 @@ class Solution:
             # FIXME: can't figure it out (the code below) - guess: 他只關注前兩個要怎麼改變鏈結方式而已。之所以不是期望的 next_four 是因為這邊很 tricky，他不打算一次處理4個，前2個弄完(對調完)之後，他要 link 的是下一組 pair，也就是第3個，所以會看到 next_one.next = next_three 之後又接 current = next_one
             next_one.next = next_three
             current = next_one
+        return dummy.next
+
+    @staticmethod
+    def run_3(head: ListNode) -> ListNode:
+        """
+        reference
+        https://github.com/qiyuangong/leetcode/blob/master/python/024_Swap_Nodes_in_Pairs.py
+        --
+
+        Runtime: 32 ms, faster than 57.67% of Python3 online submissions for Swap Nodes in Pairs.
+        Memory Usage: 14.2 MB, less than 46.80% of Python3 online submissions for Swap Nodes in Pairs.
+        """
+        dummyHead = ListNode(-1)
+        print('dummyHead:', dummyHead.__repr__())
+        dummyHead.next = head
+        prev, p = dummyHead, head
+        while p and p.next:
+            q, r = p.next, p.next.next
+            prev.next = q
+            q.next = p
+            p.next = r
+            prev = p
+            p = r
+        return dummyHead.next
 
 if __name__ == '__main__':
     sol = Solution()
