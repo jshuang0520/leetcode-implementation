@@ -64,7 +64,7 @@
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
 0021| [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)| [Python](./python_part/linked_list/0021_merge_two_sorted_lists.py) | _O(n)_ | _O(1)_ | Easy         ||
-0024| [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | [Python](./python_part/linked_list/swap_nodes_in_pairs.py)   | _O(n)_          | _O(1)_          | Easy         ||
+0024| [Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/) | [Python](./python_part/linked_list/0024_swap_nodes_in_pairs.py)   | _O(n)_          | _O(1)_          | Easy         ||
 0160| [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)| [Python](./python_part/linked_list/0160_intersection_of_two_linked_lists.py) | _O(m + n)_ | _O(1)_         | Easy           ||
 
 
@@ -80,5 +80,5 @@
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
 0005| [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Python](./python_part/string/0005_longest_palindromic_substring.py) | _O(n)_ | _O(n)_ |  Medium || `Manacher's Algorithm`
-0014| [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./python_part/string/0014_longest_common_prefix.py) | _O(n * k)_   | _O(1)_  | Easy           ||
+0014| [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./python_part/string/0014_longest_common_prefix.py) | _O(n * k)_      | _O(1)_  | Easy           ||
 0125| [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [Python](./python_part/string/0125_valid_palindrome.py) | _O(n)_  | _O(1)_         | Easy           ||
