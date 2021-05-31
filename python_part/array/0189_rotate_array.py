@@ -93,6 +93,25 @@ class Solution:
         # nums[:] = nums[-k::] + nums[:-k:]  # FIXME: mistake - "nums[:] = ..." -> we assign the list this way to modify the nums list directly
         # self.logger.info('nums: {}'.format(nums))
 
+    @staticmethod
+    def run_4(self, nums: List[int], k: int) -> None:
+        """
+        item fixed:
+        fixed the mistake made in run_3 - we need to consider the length of nums and k
+        --
+
+        Runtime: 196 ms, faster than 87.07% of Python3 online submissions for Rotate Array.
+        Memory Usage: 25.5 MB, less than 75.07% of Python3 online submissions for Rotate Array.
+        """
+        length = len(nums)
+        if k < length:
+            nums[:] = nums[-k::] + nums[:-k:]
+        elif k == length:
+            pass  # the same list as before
+        else:
+            new_k = k % length
+            nums[:] = nums[-new_k::] + nums[:-new_k:]
+
 
 if __name__ == '__main__':
     sol = Solution()
