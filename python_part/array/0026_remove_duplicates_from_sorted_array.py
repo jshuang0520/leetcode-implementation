@@ -39,7 +39,7 @@ class Solution:
         self.logger.info('nums: {}'.format(nums))
 
         # return len(nums)  # FIXME: mistake
-        return previous_idx + 1
+        return previous_idx + 1  # , nums[:previous_idx + 1]
 
     @timeit
     def run_2(self, nums: List[int]) -> int:
@@ -54,7 +54,7 @@ class Solution:
 
         self.logger.info('nums: {}'.format(nums))
 
-        return last + 1
+        return last + 1  # , nums[:last + 1]
 
 
 if __name__ == '__main__':
