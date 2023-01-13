@@ -3,7 +3,7 @@
 # [LeetCode](https://leetcode.com/problemset/all/)
 
 ## References
-### [repo 1](https://github.com/kamyu104/LeetCode-Solutions)
+### [kamyu104/LeetCode-Solutions](https://github.com/kamyu104/LeetCode-Solutions)
 
 ---
 
@@ -18,6 +18,7 @@
 ## Array
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
+1002| [Find Common Characters](https://leetcode.com/problems/find-common-characters/) | [Python](./python_part/array/1002-find-common-characters.py)        | _O(n * l)_ | _O(1)_      | Easy         ||
 0026 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [Python](./python_part/array/0026_remove_duplicates_from_sorted_array.py) | _O(n)_       | _O(1)_         | Easy           || Two Pointers
 0066 | [Plus One](https://leetcode.com/problems/plus-one/)      | [Python](./python_part/array/0066_plus_one.py)   | _O(n)_           | _O(1)_         | Easy           || 
 0189 | [Rotate Array](https://leetcode.com/problems/rotate-array/)      | [Python](./python_part/array/0189_rotate_array.py)   | _O(n)_           | _O(1)_         | Easy           ||
@@ -77,8 +78,13 @@
 
 
 ## String
-|  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
-|-----|---------------- | --------------- | --------------- | --------------- | ------------- |--------------|-----|
-0005| [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Python](./python_part/string/0005_longest_palindromic_substring.py) | _O(n)_ | _O(n)_ |  Medium || `Manacher's Algorithm`
-0014| [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./python_part/string/0014_longest_common_prefix.py) | _O(n * k)_      | _O(1)_  | Easy           ||
-0125| [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [Python](./python_part/string/0125_valid_palindrome.py) | _O(n)_  | _O(1)_         | Easy           ||
+|  #  | Title           | Solution                                                                               |  Time           | Space           | Difficulty    | Tag          | Note| 
+|-----|---------------- |----------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
+1309 | [Decrypt String from Alphabet to Integer Mapping](https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/) | [Python](./python_part/string/1309-decrypt-string-from-alphabet-to-integer-mapping.py) | _O(n)_ | _O(1)_ | Easy | |
+1189 | [Maximum Number of Balloons](https://leetcode.com/problems/maximum-number-of-balloons/) | [Python](./python_part/string/1189-maximum-number-of-balloons.py)                      | _O(n)_ | _O(1)_ | Easy | | Hash
+1108 | [Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/) | [Python](./python_part/string/1108-defanging-an-ip-address.py)                         | _O(n)_ | _O(1)_      | Easy         ||
+1078 | [Occurrences After Bigram](https://leetcode.com/problems/occurrences-after-bigram/) | [Python](./python_part/string/occurrences-after-bigram.py)                             | _O(n)_ | _O(1)_      | Easy         ||
+1071 | [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/) | [Python](./python_part/string/1071-greatest-common-divisor-of-strings.py)              | _O(m + n)_ | _O(1)_      | Easy         ||
+0005| [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Python](./python_part/string/0005_longest_palindromic_substring.py)                   | _O(n)_ | _O(n)_ |  Medium || `Manacher's Algorithm`
+0014| [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./python_part/string/0014_longest_common_prefix.py)                           | _O(n * k)_      | _O(1)_  | Easy           ||
+0125| [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [Python](./python_part/string/0125_valid_palindrome.py)                                | _O(n)_  | _O(1)_         | Easy           ||
