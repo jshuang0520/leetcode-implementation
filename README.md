@@ -3,11 +3,19 @@
 # [LeetCode](https://leetcode.com/problemset/all/)
 
 ## References
+
 ### [kamyu104/LeetCode-Solutions](https://github.com/kamyu104/LeetCode-Solutions)
+
+--
+
+### [mrinal1704/SQL-Leetcode-Challenge - Questions & Solutions](https://github.com/mrinal1704/SQL-Leetcode-Challenge)
+### [shawlu95/Beyond-LeetCode-SQL](https://github.com/shawlu95/Beyond-LeetCode-SQL)
 
 ---
 
 ## Algorithms
+
+* [SQL]
 
 * [Bit Manipulation](https://github.com/jshuang0520/leetcode-practice/tree/master/python_part#bit-manipulation)
 * [Array](https://github.com/jshuang0520/leetcode-practice/tree/master/python_part#array)
@@ -77,6 +85,7 @@
 <br/>
 
 
+
 ## String
 |  #  | Title           | Solution                                                                               |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-----|---------------- |----------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
@@ -88,3 +97,26 @@
 0005| [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) | [Python](./python_part/string/0005_longest_palindromic_substring.py)                   | _O(n)_ | _O(n)_ |  Medium || `Manacher's Algorithm`
 0014| [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Python](./python_part/string/0014_longest_common_prefix.py)                           | _O(n * k)_      | _O(1)_  | Easy           ||
 0125| [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [Python](./python_part/string/0125_valid_palindrome.py)                                | _O(n)_  | _O(1)_         | Easy           ||
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#algorithms">⬆️ Back to Top</a></b>
+</div>
+<br/>
+
+
+
+## SQL
+|  #  | Title           | Solution                                                                              |  Time           | Space           | Difficulty    | Tag          | Note| 
+|-----|---------------- |---------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
+1322 | [Ads Performance](https://leetcode.com/problems/ads-performance/) | [MySQL](./sql_part/1322-ads-performance.sql)                                          | _O(nlogn)_ | _O(n)_       | Easy           |🔒| |
+1050 | [Actors and Directors Who Cooperated At Least Three Times](https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/) | [MySQL](./sql_part/1050-actors-and-directors-who-cooperated-at-least-three-times.sql) | _O(n)_ | _O(n)_       | Easy           |🔒| |
+
+
+<br/>
+<div align="right">
+    <b><a href="#algorithms">⬆️ Back to Top</a></b>
+</div>
+<br/>
