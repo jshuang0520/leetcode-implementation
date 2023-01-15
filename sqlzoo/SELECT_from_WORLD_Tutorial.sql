@@ -107,3 +107,4 @@ AND (name LIKE '%u%')
 AND (name NOT LIKE '% %')
 
 --quiz
+--Your score is: 7 out of 7
