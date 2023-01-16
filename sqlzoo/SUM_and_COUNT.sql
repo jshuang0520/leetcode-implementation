@@ -1,5 +1,5 @@
 
--- https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial
+-- https://sqlzoo.net/wiki/SUM_and_COUNT
 
 --1
 SELECT SUM(population) AS population
