@@ -120,3 +120,22 @@
     <b><a href="#algorithms">⬆️ Back to Top</a></b>
 </div>
 <br/>
+
+## sqlzoo
+|  #  | Title           | Solution                                                                              | 
+|-----|---------------- |---------------------------------------------------------------------------------------|
+1 | [SELECT basics](https://sqlzoo.net/wiki/SELECT_basics) | [MySQL](./sqlzoo/SELECT_basics.sql)
+2 | [SELECT from world](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial) | [MySQL](./sqlzoo/SELECT_from_WORLD_Tutorial.sql)
+3 | [SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial) | [MySQL](./sqlzoo/SELECT_from_Nobel_Tutorial.sql)
+4 | [SELECT in SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial) | [MySQL](./sqlzoo/SELECT_within_SELECT_Tutorial.sql)
+5 | [SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT) | [MySQL](./sqlzoo/SUM_and_COUNT.sql)
+6 | [JOIN](https://sqlzoo.net/wiki/The_JOIN_operation) | [MySQL](./sqlzoo/The_JOIN_operation.sql)
+7 | [More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations) | [MySQL](./sqlzoo/More_JOIN_operations.sql)
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#algorithms">⬆️ Back to Top</a></b>
+</div>
+<br/>
