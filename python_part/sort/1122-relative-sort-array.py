@@ -42,3 +42,26 @@ class Solution:
 
 
 print(Solution.relativeSortArray(None, arr1=[2,3,1,3,2,4,6,7,9,2,19], arr2=[2,1,4,3,9,6]))
+
+
+print('---------------------------------------------------------------------------------------------\n')
+
+
+# good answer
+# https://leetcode.com/problems/relative-sort-array/solutions/427243/5-lines-python-eeasyy/
+
+class Solution(object):
+    def relativeSortArray(self, arr1, arr2):
+        c = Counter(arr1)
+        res = []
+        for i in arr2:
+            # print(f'i: {i}')
+            # print(f'before - res: {res}; counter: {c}')
+            res += [i] * c.pop(i)  # TODO: to be more understandable:  res += [i] * int(c.pop(i))
+            # print(f'after - res: {res}; counter: {c}')
+            # print('-----------------------------------')
+        return res + sorted(c.elements())
+
+
+print(Solution.relativeSortArray(None, arr1=[2,3,1,3,2,4,6,7,9,2,19], arr2=[2,1,4,3,9,6]))
+# [2, 2, 2, 1, 4, 3, 3, 9, 6, 7, 19]
