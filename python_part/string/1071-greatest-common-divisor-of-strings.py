@@ -4,6 +4,23 @@ from math import gcd
 
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
+        """
+        `t divides s if and only if s = t + ... + t`
+        -> that is to say, there are no alphabets other than t in s
+
+        according to this description, when we concat str1 and str2,
+        it should be like a mirror, whether "str1+str2" or "str2+str1"
+        or else, those two strings don't have gcd in common
+        """
+        ans = ""
+        if (str1 + str2) == (str2 + str1):
+            ans = str1[:gcd(len(str1), len(str2))]
+
+        return ans
+
+
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
         return str1[:gcd(len(str1), len(str2))] if str1 + str2 == str2 + str1 else ''
 
 

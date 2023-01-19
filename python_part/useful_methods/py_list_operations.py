@@ -83,3 +83,30 @@ print(f'''
 
 
 print('---------------------------------------------------------------------------------------------\n')
+
+
+google_str = 'python list __add__ __iadd__'
+print(f'google: {google_str}')
+# https://stackoverflow.com/questions/9766387/different-behaviour-for-list-iadd-and-list-add
+print('''__iadd__ mutates the list, whereas __add__ returns a new list, as demonstrated.''')
+"""
+consider the following code:
+>>> x = y = [1, 2, 3, 4]
+>>> x += [4]              -------> for python list += means calling .__iadd__(), it mutates the original list (thus faster)
+>>> x
+[1, 2, 3, 4, 4]
+>>> y
+[1, 2, 3, 4, 4]
+
+
+and then consider this:
+>>> x = y = [1, 2, 3, 4]
+>>> x = x + [4]           -------> for python list x = x + [4] means calling .__add__(), it returns a new list (thus slower)
+>>> x
+[1, 2, 3, 4, 4]
+>>> y
+[1, 2, 3, 4]
+"""
+
+
+print('---------------------------------------------------------------------------------------------\n')

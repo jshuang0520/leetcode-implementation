@@ -127,6 +127,19 @@
 
 
 
+## Sort
+
+| #    | Title           | Solution                                                                   |  Time           | Space           | Difficulty    | Tag          | Note| 
+|------|---------------- |----------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
+| 1122 | [Relative Sort Array](https://leetcode.com/problems/relative-sort-array/) | [Python](./python_part/sort/1122-relative-sort-array.py)                   | _O(nlogn)_   | _O(n)_        | Easy         ||
+| 1356 | [Sort Integers by The Number of 1 Bits](https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/) | [Python](./python_part/sort/1356-sort-integers-by-the-number-of-1-bits.py) | _O(nlogn)_   | _O(1)_        | Easy         || Bit Manipulation|
+
+<br/>
+<div align="right">
+    <b><a href="#algorithms">⬆️ Back to Top</a></b>
+</div>
+<br/>
+
 ## SQL
 | #     | Title           | Solution                                                                              |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-------|---------------- |---------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|

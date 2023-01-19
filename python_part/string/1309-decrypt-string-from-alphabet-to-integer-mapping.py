@@ -1,3 +1,33 @@
+import string
+from collections import defaultdict
+
+
+class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        """
+        since there's #, so we deal with this string "backward"
+        """
+        ans_str = ''
+        dd = defaultdict(str)
+
+        for idx, alphabet in enumerate(list(string.ascii_lowercase), 1):  # enumerate(..., 1) means enumerate from 1
+            dd[str(idx)] = alphabet
+
+        while len(s) > 0:
+            # print(f'original string: {s}')
+            if s[-1] == '#':
+                ans_str = dd[s[-3:-1]] + ans_str
+                s = s[:-3]  # update the string
+                # print(f'new string: {s[:-3]}, ans_str: {ans_str}')
+            else:
+                ans_str = dd[s[-1]] + ans_str
+                s = s[:-1]  # update the string
+                # print(f'new string: {s[:-1]}, ans_str: {ans_str}')
+            # print('--')
+        return ans_str
+print(Solution.freqAlphabets(None, s="10#11#12"))
+
+
 class Solution:
     """Time taken
     01 : 09 : 20

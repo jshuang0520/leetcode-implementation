@@ -14,6 +14,65 @@ https://leetcode.com/problems/two-sum/
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
+        to record metadata for quick retrieval -> defaultdict
+        calculation relates to index
+        """
+        dd = defaultdict(list)
+        # ans_lst = list()
+
+        # (num + ans = target) => (ans = target - num)
+        for idx, num in enumerate(nums):
+            dd[num].append(idx)
+        # print(f'finished dd: {dd}')
+
+        keys_set = set(dd.keys())
+        for key, value in dd.items():
+            # print(f'key, value: {key, value}')
+            # print(f'dd[key]: {dd[key]}')
+            # print(f'dd[target - key]: {dd[target - key]}')
+            if target == 2*key:
+                if len(value) == 2:
+                    return value
+            else:
+                if value and ((target - key) in keys_set):  # FIXME: RuntimeError: dictionary changed size during iteration -> in python defaultdict, if a key was not existed, it will create one instantly -> so in this for loop to check .items(), it will encounter RuntimeError: dictionary changed size during iteration
+                    # ans_lst.__iadd__(value)
+                    # ans_lst.__iadd__(dd[target - key])
+                    return value.__iadd__(dd[target - key])  # __iadd__ means in-place-add
+
+
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         """
+#         to record metadata for quick retrieval -> defaultdict
+#         calculation relates to index
+#         """
+#         dd = defaultdict(list)
+#         ans_lst = list()
+#
+#         # (num + ans = target) => (ans = target - num)
+#         for idx, num in enumerate(nums):
+#             dd[num].append(idx)
+#         print(f'finished dd: {dd}')
+#
+#         for key, value in dd.items():
+#             print(f'key, value: {key, value}')
+#             print(f'dd[key]: {dd[key]}')
+#             print(f'dd[target - key]: {dd[target - key]}')
+#             if target == 2*key:
+#                 if len(value) == 2:
+#                     return value
+#             else:
+#                 if value and (dd[target - key]):  # FIXME: RuntimeError: dictionary changed size during iteration -> in python defaultdict, if a key was not existed, it will create one instantly -> so in this for loop to check .items(), it will encounter RuntimeError: dictionary changed size during iteration
+#                     ans_lst.__iadd__(value)
+#                     ans_lst.__iadd__(dd[target - key])
+#                     return ans_lst  # __iadd__ means in-place-add
+# print(Solution.twoSum(None, nums=[3,2,4], target=6))
+# print('----------------------------------------------------')
+# print(Solution.twoSum(None, nums=[2,5,5,11], target=10))
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """
         "array" of int + "add up to target"
         -> to find "something to match"
         -> "Now, I have a half one, if the other correspondence shows up, then I can know!"

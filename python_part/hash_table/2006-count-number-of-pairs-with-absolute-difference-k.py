@@ -14,5 +14,5 @@ class Solution:
         # => (target = n - k) or (target = n + k)
         for n in nums:
             dd[n] += 1
-            pairs += dd[n-k] + dd[n+k]  # see the comment above! (line 13)
+            pairs += dd[n-k] + dd[n+k]  # means: pairs += dd[target]  # see the comment above! (line 13)
         return pairs

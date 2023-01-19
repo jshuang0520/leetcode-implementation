@@ -1,5 +1,24 @@
 from collections import Counter
 
+from collections import Counter, defaultdict
+
+
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        balloon_str = "balloon"
+        check_lst = list()
+        ans = 0
+
+        if set(balloon_str) <= set(text):
+            balloon_cnt = dict(Counter(balloon_str))
+            text_cnt = dict(Counter(text))
+
+            for key, value in balloon_cnt.items():  # if we iterate text_cnt, maybe there are alphabets not in "balloon"
+                check_lst.append(int(text_cnt[key] / value))
+            ans = min(check_lst)
+
+        return ans
+
 
 class Solution:
     """Time taken

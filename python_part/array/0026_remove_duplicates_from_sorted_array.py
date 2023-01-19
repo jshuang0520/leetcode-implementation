@@ -1,3 +1,99 @@
+from typing import List
+from collections import Counter, defaultdict
+
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        """
+        according to instructions: in-place replacement for nums: List[int]
+        -> python list operation
+
+        ---
+        since it's in-place replacement, we do not take only one action at a time, e.g. only del
+        instead, we re-assign the elements "by index"
+        note. in python list operation, `remove` by value; both `del` and `pop` by index, however, they are single actions,
+        so we keep an eye on indexes, in order to do in-place replacement operations
+
+        idx 0   1  2  3  4  5  6  7  8  9      0  1  2  3  4
+            [0, 0, 1, 1, 1, 2, 2, 3, 3, 4] -> [0, 1, 2, 3, 4]
+        """
+        if not nums:
+            return 0
+        # since this in-place replacement thing, the "targets-to-record" are "indexes"
+        position_idx = 0  # this variable records the index whether we should keep the original value, or to replace it into a new element
+        for i in range(0, len(nums)):
+            if nums[i] == nums[position_idx]:
+                pass
+            else:
+                position_idx += 1
+                nums[position_idx] = nums[i]
+        return position_idx+1  # for the length, cuz it counts from index 0
+
+
+# # FIXME: wrong answer
+# class Solution:
+#     def removeDuplicates(self, nums: List[int]) -> int:
+#         """
+#         instructions: in-place replacement for nums: List[int]
+#         -> python list operation
+#
+#         ---
+#         since it's in-place replacement, we do not take only one action at a time, e.g. only del
+#         instead, we re-assign the elements "by index"
+#         note. in python list operation, `remove` by value; both `del` and `pop` by index, however, they are single actions,
+#         so we keep an eye on indexes, in order to do in-place replacement operations
+#
+#         idx 0   1  2  3  4  5  6  7  8  9      0  1  2  3  4
+#             [0, 0, 1, 1, 1, 2, 2, 3, 3, 4] -> [0, 1, 2, 3, 4]
+#         """
+#         # since this in-place replacement thing, it's all about indexes, thus, we need to record it
+#         position_idx = 0
+#         for i in range(1, len(nums)):
+#             if nums[i] == nums[position_idx]:
+#                 position_idx += 1
+#             else:
+#                 nums[position_idx] = nums[i]
+#         return position_idx+1
+#
+#
+# """ wrong answer, and according to instructions, we should do in-place replacement
+# nums = [0,0,1,1,1,2,2,3,3,4]
+#
+# Output
+# [0,1,1,2,3,4]
+# Expected
+# [0,1,2,3,4]
+# """
+
+
+# # FIXME: wrong answer
+# class Solution:
+#     def removeDuplicates(self, nums: List[int]) -> int:
+#         contain_lst = list()
+#         not_contain_lst = list()
+#         check_set = set()
+#
+#         for num in nums:
+#             if num not in check_set:
+#                 contain_lst.append(num)
+#             else:
+#                 not_contain_lst.append(None)
+#             check_set.add(num)
+#         return len(contain_lst)
+#
+#
+# """ wrong answer, and according to instructions, we should do in-place replacement
+# nums = [0,0,1,1,1,2,2,3,3,4]
+#
+# Output
+# [0,0,1,1,1]
+# Expected
+# [0,1,2,3,4]
+# """
+#
+# print(Solution.removeDuplicates(None, nums=[1, 1, 2]))
+
+
 # -*- coding: utf-8 -*-
 from typing import List
 from utility.utils import Logger, timeit

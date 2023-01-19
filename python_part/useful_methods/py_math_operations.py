@@ -7,3 +7,14 @@ from functools import reduce
 lst = [2, 3, 4]
 ans = reduce(lambda x, y: x*y, lst)  # [python multiply elements in list](https://stackoverflow.com/questions/13840379/how-can-i-multiply-all-items-in-a-list-together-with-python)
 print(f'ans: {ans}')
+
+
+# https://stackoverflow.com/questions/11175131/code-for-greatest-common-divisor-in-python
+def gcd(x, y):
+    while y != 0:
+        (x, y) = (y, x % y)
+        # print(f'(x, y): {(x, y)}')
+    return x
+
+
+gcd(40, 16)

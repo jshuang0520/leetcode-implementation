@@ -1,3 +1,63 @@
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        """
+        auxiliary: power of two -> mod
+        binary -> bit operation
+        """
+        if n < 0:
+            return False
+        elif n == 1:
+            return True
+        elif n % 2 == 0:
+            cnt = str(bin(n)).count('1')
+            if cnt == 1:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        """
+        auxliary: power of three -> mod
+        """
+        if n <= 0:
+            return False
+        elif n == 1:
+            return True
+        elif n % 3 == 0:
+            while n > 3:
+                n = n / 3
+            if n % 3 == 0:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+
+class Solution(object):
+    """
+    https://leetcode.com/problems/power-of-three/solutions/2471858/c-java-python-easy-fast/?orderBy=most_votes&languageTags=python
+    """
+    def isPowerOfThree(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n == 0:
+            return False
+        if n == 1:
+            return True
+
+        while (n % 3 == 0):
+            n /= 3
+
+        return n == 1
+
+
 # -*- coding: utf-8 -*-
 from utility.utils import Logger, timeit
 
