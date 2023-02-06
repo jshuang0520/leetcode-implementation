@@ -31,18 +31,18 @@
 ---
 
 ## Array
-| #    | Title           | Solution                                                                             |  Time           | Space           | Difficulty    | Tag           | Note| 
-|------|---------------- |--------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |---------------|-----|
-| 1184 | [Distance Between Bus Stops](https://leetcode.com/problems/distance-between-bus-stops/) | [Python](./python_part/array/distance-between-bus-stops.py) | _O(n)_ | _O(1)_      | Easy         || 
-| 1089 | [Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/) | [Python](./python_part/array/duplicate-zeros.py) | _O(n)_ | _O(1)_      | Easy         ||
-| 1051 | [Height Checker](https://leetcode.com/problems/height-checker/) | [Python](./python_part/array/height-checker.py) | _O(nlogn)_ | _O(n)_      | Easy         ||
-| 1030 | [Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order/) | [Python](./python_part/array/matrix-cells-in-distance-order.py) | _O(m * n)_ | _O(1)_      | Easy         ||
-| 1013 | [Partition Array Into Three Parts With Equal Sum](https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/) | [Python](./python_part/array/partition-array-into-three-parts-with-equal-sum.py) | _O(n)_ | _O(1)_      | Easy         ||
+| #    | Title           | Solution                                                                                  |  Time           | Space           | Difficulty    | Tag           | Note| 
+|------|---------------- |-------------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |---------------|-----|
+| 1184 | [Distance Between Bus Stops](https://leetcode.com/problems/distance-between-bus-stops/) | [Python](./python_part/array/1184-distance-between-bus-stops.py)                          | _O(n)_ | _O(1)_      | Easy         || 
+| 1089 | [Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/) | [Python](./python_part/array/1089-duplicate-zeros.py)                                     | _O(n)_ | _O(1)_      | Easy         ||
+| 1051 | [Height Checker](https://leetcode.com/problems/height-checker/) | [Python](./python_part/array/1051-height-checker.py)                                      | _O(nlogn)_ | _O(n)_      | Easy         ||
+| 1030 | [Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order/) | [Python](./python_part/array/1030-matrix-cells-in-distance-order.py)                      | _O(m * n)_ | _O(1)_      | Easy         ||
+| 1013 | [Partition Array Into Three Parts With Equal Sum](https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/) | [Python](./python_part/array/1013-partition-array-into-three-parts-with-equal-sum.py)     | _O(n)_ | _O(1)_      | Easy         ||
 | 1010 | [Pairs of Songs With Total Durations Divisible by 60](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/) | [Python](./python_part/array/1010-pairs-of-songs-with-total-durations-divisible-by-60.py) | _O(n)_ | _O(1)_      | Easy         ||
-| 1002 | [Find Common Characters](https://leetcode.com/problems/find-common-characters/) | [Python](./python_part/array/1002-find-common-characters.py)                         | _O(n * l)_ | _O(1)_      | Easy         ||
-| 0026 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [Python](./python_part/array/0026_remove_duplicates_from_sorted_array.py)            | _O(n)_       | _O(1)_         | Easy           || Two Pointers  |
-| 0066 | [Plus One](https://leetcode.com/problems/plus-one/)      | [Python](./python_part/array/0066_plus_one.py)                                       | _O(n)_           | _O(1)_         | Easy           || 
-| 0189 | [Rotate Array](https://leetcode.com/problems/rotate-array/)      | [Python](./python_part/array/0189_rotate_array.py)                                   | _O(n)_           | _O(1)_         | Easy           ||
+| 1002 | [Find Common Characters](https://leetcode.com/problems/find-common-characters/) | [Python](./python_part/array/1002-find-common-characters.py)                              | _O(n * l)_ | _O(1)_      | Easy         ||
+| 0026 | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)| [Python](./python_part/array/0026_remove_duplicates_from_sorted_array.py)                 | _O(n)_       | _O(1)_         | Easy           || Two Pointers  |
+| 0066 | [Plus One](https://leetcode.com/problems/plus-one/)      | [Python](./python_part/array/0066_plus_one.py)                                            | _O(n)_           | _O(1)_         | Easy           || 
+| 0189 | [Rotate Array](https://leetcode.com/problems/rotate-array/)      | [Python](./python_part/array/0189_rotate_array.py)                                        | _O(n)_           | _O(1)_         | Easy           ||
 
 
 
@@ -70,6 +70,7 @@
 ## Hash Table
 | #    | Title           | Solution                                                                                    |  Time           | Space           | Difficulty    | Tag          | Note| 
 |------|---------------- |---------------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
+| 2023 | [Number of Pairs of Strings With Concatenation Equal to Target](https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/)      | [Python](./python_part/hash_table/number-of-pairs-of-strings-with-concatenation-equal-to-target.py)      | _O(n * l)_         | _O(n)_          | Medium         | variant of [Two Sum](https://leetcode.com/problems/two-sum/) |
 | 2006 | [Count Number of Pairs With Absolute Difference K](https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/)      | [Python](./python_part/hash_table/2006-count-number-of-pairs-with-absolute-difference-k.py) | _O(n)_         | _O(n)_          | Easy         | variant of [Two Sum](https://leetcode.com/problems/two-sum/) ||
 | 0001 | [Two Sum](https://leetcode.com/problems/two-sum/)      | [Python](./python_part/hash_table/0001_two_sum.py)                                          | _O(n)_         | _O(n)_          | Easy         ||
 | 0003 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Python](./python_part/hash_table/0003_longest_substring_without_repeating.py)              | _O(n)_ | _O(1)_ | Medium ||
