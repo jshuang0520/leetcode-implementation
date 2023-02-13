@@ -24,6 +24,8 @@
 
 * [Sort](https://github.com/jshuang0520/leetcode-practice#sort)
 
+* [Tree](https://github.com/jshuang0520/leetcode-practice#tree)
+
 * [SQL](https://github.com/jshuang0520/leetcode-practice#sql)
 * [sqlzoo](https://github.com/jshuang0520/leetcode-practice#sqlzoo)
 
@@ -151,6 +153,21 @@
 </div>
 <br/>
 
+
+## Tree
+
+| #    | Title           | Solution                                                                                  |  Time           | Space           | Difficulty    | Tag          | Note| 
+|------|---------------- |-------------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
+| 1022 | [Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/)| ( [Python](./python_part/tree/1022-sum-of-root-to-leaf-binary-numbers.py)                 | _O(n)_ | _O(h)_ | Easy |||
+| 1008 | [Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/)| [Python](./python_part/tree/1008-construct-binary-search-tree-from-preorder-traversal.py) | _O(n)_ | _O(h)_ | Medium |||
+| 2236 | [Root Equals Sum of Children](https://leetcode.com/problems/root-equals-sum-of-children/)| [Python](./python_part/tree/2236-root-equals-sum-of-children.py)                          | _O(1)_ | _O(1)_ | Easy | | Tree |
+<br/>
+<div align="right">
+    <b><a href="#algorithms">⬆️ Back to Top</a></b>
+</div>
+<br/>
+
+
 ## SQL
 | #     | Title           | Solution                                                                              |  Time           | Space           | Difficulty    | Tag          | Note| 
 |-------|---------------- |---------------------------------------------------------------------------------------| --------------- | --------------- | ------------- |--------------|-----|
@@ -165,15 +182,15 @@
 <br/>
 
 ## sqlzoo
-|  #  | Title           | Solution                                                                              | 
+| #   | Title           | Solution                                                                              | 
 |-----|---------------- |---------------------------------------------------------------------------------------|
-1 | [SELECT basics](https://sqlzoo.net/wiki/SELECT_basics) | [MySQL](./sqlzoo/SELECT_basics.sql)
-2 | [SELECT from world](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial) | [MySQL](./sqlzoo/SELECT_from_WORLD_Tutorial.sql)
-3 | [SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial) | [MySQL](./sqlzoo/SELECT_from_Nobel_Tutorial.sql)
-4 | [SELECT in SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial) | [MySQL](./sqlzoo/SELECT_within_SELECT_Tutorial.sql)
-5 | [SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT) | [MySQL](./sqlzoo/SUM_and_COUNT.sql)
-6 | [JOIN](https://sqlzoo.net/wiki/The_JOIN_operation) | [MySQL](./sqlzoo/The_JOIN_operation.sql)
-7 | [More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations) | [MySQL](./sqlzoo/More_JOIN_operations.sql)
+| 1   | [SELECT basics](https://sqlzoo.net/wiki/SELECT_basics) | [MySQL](./sqlzoo/SELECT_basics.sql) |
+| 2   | [SELECT from world](https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial) | [MySQL](./sqlzoo/SELECT_from_WORLD_Tutorial.sql) |
+| 3   | [SELECT from nobel](https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial) | [MySQL](./sqlzoo/SELECT_from_Nobel_Tutorial.sql) |
+| 4   | [SELECT in SELECT](https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial) | [MySQL](./sqlzoo/SELECT_within_SELECT_Tutorial.sql) |
+| 5   | [SUM and COUNT](https://sqlzoo.net/wiki/SUM_and_COUNT) | [MySQL](./sqlzoo/SUM_and_COUNT.sql) |
+| 6   | [JOIN](https://sqlzoo.net/wiki/The_JOIN_operation) | [MySQL](./sqlzoo/The_JOIN_operation.sql) |
+| 7   | [More JOIN](https://sqlzoo.net/wiki/More_JOIN_operations) | [MySQL](./sqlzoo/More_JOIN_operations.sql) |
 
 
 

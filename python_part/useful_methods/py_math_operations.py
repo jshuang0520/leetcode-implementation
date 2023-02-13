@@ -18,3 +18,10 @@ def gcd(x, y):
 
 
 gcd(40, 16)
+
+
+print('---------------------------------------------------------------------------------------------\n')
+
+print('二進位和十進位: (Binary to Decimal) and (Decimal to Decimal)')
+print(f"int('11101', 2): {int('11101', 2)}")  # Binary to Decimal Conversion and value addition
+print(f"int('11101', 10): {int('11101', 10)}")  # Decimal to Decimal Conversion and value addition

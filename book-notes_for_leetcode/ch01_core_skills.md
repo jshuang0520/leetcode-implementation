@@ -139,6 +139,9 @@ pre {
 
 [binary tree traversal - figures](https://algodaily.com/challenges/binary-tree-inorder-traversal)
 
+- notice the position of "Node", it relates to the naming
+![binary tree traversal - in one figure](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/solutions/797205/Figures/1022/ddfs2.png)
+
 | Pre-order Traversal | In-order Traversal |Post-order Traversal|
 |:-----------------------------------------------------------------|:-----------------:|:---------------------------------------------------------------------------------------------------------------------------:|
 |![Pre-order Traversal](https://storage.googleapis.com/algodailyrandomassets/curriculum/trees/bt-inorder-traversal-pre.png)|![In-order Traversal](https://storage.googleapis.com/algodailyrandomassets/curriculum/trees/bt-inorder-traversal-in.png)| ![Post-order Traversal](https://storage.googleapis.com/algodailyrandomassets/curriculum/trees/bt-inorder-traversal-post.png) |
