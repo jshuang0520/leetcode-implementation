@@ -3,6 +3,62 @@ from typing import List
 from utility.utils import Logger, timeit
 
 
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        """
+        strategy: result times 10, and then add ones digit
+
+        --
+        Runtime 34 ms Beats 67.73% Memory 13.9 MB Beats 49.55%
+        """
+        total = 0
+        # lst = list()
+
+        for digit in digits:
+            total = total * 10 + digit
+        total += 1
+        # str_total = str(total)
+        # for elem in str_total:
+        #     lst.append(int(elem))
+        return list(map(int, str(total)))
+
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        """
+        strategy: string concat -> to integer -> plus one -> back to list form
+
+        --
+        Runtime 38 ms Beats 41.20% Memory 13.9 MB Beats 49.55%
+        """
+        lst = list()
+        if digits:
+            # integer = str(int(''.join(str(x) for x in digits)) + 1)
+            integer = str(int(''.join(str(x) for x in digits)) + 1)
+            for x in integer:
+                lst.append(int(x))
+        return lst
+
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        # """
+        # Runtime 41 ms Beats 33.4% Memory 13.9 MB Beats 8.48%
+        # """
+        # string = ''
+        # for s in digits:
+        #     string += str(s)
+        # string = str(int(string) + 1)
+        # return list(map(int, string))
+
+        """
+        Runtime 32 ms Beats 81.3% Memory 14.2 MB Beats 8.48%
+        """
+        res = int(''.join(str(x) for x in digits))
+        res += 1
+        return list(map(int, str(res)))
+
+
 """
 Array
 0066	Plus One

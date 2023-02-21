@@ -3,6 +3,39 @@ from collections import defaultdict
 
 
 class Solution:
+    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+        """
+        Runtime 158 ms Beats 87.8% Memory 15.7 MB Beats 88.20%
+        """
+        ans_lst = list()
+
+        for i in range(0, rows):
+            for j in range(0, cols):
+                ans_lst.append([i, j])
+
+        def distance(point):
+            x, y = point
+            return abs(x - rCenter) + abs(y - cCenter)
+
+        return sorted(ans_lst, key=lambda element_point: distance(element_point))
+
+
+class Solution:
+    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+        """
+        Runtime 168 ms Beats 58.15% Memory 15.8 MB Beats 64.33%
+        """
+        def distance(p11, p12, p21, p22):
+            return abs(p11 - p21) + abs(p12 - p22)
+
+        lst = list()
+        for i in range(rows):
+            for j in range(cols):
+                lst.append([i, j])
+        return sorted(lst, key=lambda row: distance(p11=row[0], p12=row[1], p21=rCenter, p22=cCenter))
+
+
+class Solution:
     """
     Runtime 159 ms Beats 85.58% Memory 15.8 MB Beats 87.73%
     """
