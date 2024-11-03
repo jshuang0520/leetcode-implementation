@@ -13,6 +13,33 @@ https://leetcode.com/problems/two-sum/
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """improve the previous idea with a decent time complexity
+        Runtime 0 ms Beats 100.00%
+        Memory 17.81 MB Beats 22.16%
+        """
+        pool = dict()
+        for idx, num in enumerate(nums):
+            target_elem = target - num
+            if target_elem in pool:
+                return [idx, pool[target_elem]]
+            pool[num] = idx  # brilliant mechanism to prevent from adding the current idx! You first search for the pools, and then add the new information after the if conditional statement
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """very slow implementation!
+        Runtime 963 ms Beats 31.28%
+        Memory 17.23 MB Beats 91.79%
+        """
+        for idx, num in enumerate(nums):
+            target_elem = target - num
+            for i in range(idx + 1, len(nums)):
+                if nums[i] == target_elem:
+                    return [idx, i]
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         to record metadata for quick retrieval -> defaultdict
         calculation relates to index
