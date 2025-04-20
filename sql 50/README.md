@@ -265,22 +265,25 @@ for example,
 
 Input
 
-| Result 1 |
-|----------|
+Given Result 1 from a query,
+
 | id       |
+|----------|
 | 1        |
 | 2        |
 
-| Result 2 |
-|----------|
+and Result 2 from another query,
+
 | id       |
+|----------|
 | 3        |
 
-Expected Output (concat vertically)
+how can I concat these two result sets vertically to get the following answer?
 
-| Final Result |
-|---------------|
+Expected Output
+
 | id            |
+|---------------|
 | 1             |
 | 2             |
 | 3             |
