@@ -261,15 +261,24 @@ But this only works inside:
 
 ### Example Input and Output for Vertical Concatenation
 
-- input
-| Result 1 |     | Result 2 |     
-|----------|-----|----------|
-| id       |     | id       |     
-| 1        |     | 3        |     
-| 2        |     |          |     
-|          |     |          |     
+for example,
 
-- output
+Input
+
+| Result 1 |
+|----------|
+| id       |
+| 1        |
+| 2        |
+|          |
+
+| Result 2 |
+|----------|
+| id       |
+| 3        |
+
+Expected Output (concat vertically)
+
 | Final Result |
 |---------------|
 | id            |
