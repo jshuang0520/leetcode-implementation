@@ -1,23 +1,18 @@
 # ✅ Full Logical Processing Order (with JOINs included)
-Here’s a more complete version of SQL’s logical processing steps:
 
-1. FROM
-2. JOIN / ON
-3. WHERE
+Here's a more complete version of SQL's logical processing steps:
 
-4. GROUP BY
-5. HAVING
-
-6. SELECT
-
-7. DISTINCT
-
-8. ORDER BY
-
+1. FROM  
+2. JOIN / ON  
+3. WHERE  
+4. GROUP BY  
+5. HAVING  
+6. SELECT  
+7. DISTINCT  
+8. ORDER BY  
 9. LIMIT / OFFSET
 
-
-"""
+```sql
 6. SELECT
 7. DISTINCT
 
@@ -30,12 +25,16 @@ Here’s a more complete version of SQL’s logical processing steps:
 
 8. ORDER BY
 9. LIMIT / OFFSET
-"""
+```
 
+---
 
-# WITH statement - temp table
-❌ No, you cannot use multiple separate WITH statements in a single SQL query
+## ⛄ WITH statement - temp table
+
+❌ No, you cannot use multiple separate WITH statements in a single SQL query  
 ✅ Instead, you should combine them into one WITH clause, separating multiple CTEs with commas:
+
+```sql
 WITH tbl_start AS (
     SELECT machine_id, process_id, timestamp
     FROM Activity
@@ -45,117 +44,147 @@ WITH tbl_start AS (
     FROM Activity
     WHERE activity_type = 'end'
 )
+```
 
+---
 
-# LAG function
+## 🔀 LAG function
+
+```sql
 LAG(column_1) OVER (ORDER BY column_2) AS col_alias
+```
 
+---
 
-# DATEDIFF
--- to find "yesterday": DATEDIFF(...) = 1
+## 📅 DATEDIFF
+
+To find "yesterday":
+
+```sql
 DATEDIFF(recordDate, previous_Date) = 1
+```
 
+```sql
 DATEDIFF(date1, date2) = date1 - date2 (in days)
-DATEDIFF('2025-04-19', date) = '2025-04-19' - date (in days)  # we need the single quote for the date itself
+DATEDIFF('2025-04-19', date) = '2025-04-19' - date
+```
 
-# (bonus IS NULL) ≠ (bonus = NULL)
-🤯 Why is that?
-✅ bonus IS NULL
-This is the correct way to check for a NULL value.
+Remember to wrap literal dates in single quotes.
 
-❌ bonus = NULL
-This always results in UNKNOWN, not TRUE, even if bonus is NULL.
+---
 
-🔍 Here's why — Three-Valued Logic in SQL
-SQL uses three-valued logic:
+## 🤯 (bonus IS NULL) ≠ (bonus = NULL)
 
-- TRUE
+| Expression        | Result   |
+|------------------|----------|
+| bonus IS NULL     | ✅ TRUE/FALSE |
+| bonus = NULL      | ❌ UNKNOWN |
+| bonus != NULL     | ❌ UNKNOWN |
+| bonus IS NOT NULL | ✅ TRUE/FALSE |
 
-- FALSE
+---
 
-- UNKNOWN
+## 🔍 Finding Keywords in a VARCHAR Column
 
+- ✅ `NOT LIKE '%math%'` — partial match  
+- ✅ `NOT IN ('math')` — exact match  
+- ✅ Add `IS NOT NULL` if needed
 
-✅ Correct Comparisons with NULL
-
-Expression	Result
-- bonus IS NULL	TRUE / FALSE
-
-- bonus = NULL	UNKNOWN
-
-- bonus != NULL	UNKNOWN
-
-- bonus IS NOT NULL	TRUE / FALSE
-
-# how to find if a keyword is not in a column which its schema is VARCHAR?
-✅ 1. NOT LIKE for partial match
-✅ 2. NOT IN for exact match
-✅ 3. Use IS NULL to cover nulls too
+```sql
 WHERE column_name NOT LIKE '%math%' AND column_name IS NOT NULL
+```
 
-# how to select an odd-number id?
+---
+
+## 📉 Select odd-numbered IDs
+
+```sql
 WHERE id % 2 = 1
+```
 
-# if given a date, how should I join this row to the corresponding time period?
+---
 
+## 📅 Join with a time period
+
+```sql
 JOIN Prices AS p
   ON u.product_id = p.product_id
-    AND u.purchase_date BETWEEN p.start_date AND p.end_date
+ AND u.purchase_date BETWEEN p.start_date AND p.end_date
+```
 
+---
 
-🔹 Why Use ON + AND in JOIN?
-When you're doing a JOIN, the ON clause defines how the two tables relate to each other — that is, the condition for matching rows.
+## 🧠 Why Use ON + AND in JOIN?
 
+Think of `ON` as the **join's WHERE clause** — it defines how to match rows:
 
+```sql
+JOIN table2
+  ON table1.id = table2.id
+ AND table1.date BETWEEN ...
+```
 
-🔍 Analogy: ON is the join's WHERE clause
-It helps to think of this:
+---
 
-ON = "only combine rows from both tables when this condition is true"
+## 🛠️ Replacing NULLs
 
-The AND just lets you add more conditions to the same JOIN.
+```sql
+IFNULL(SUM(p.price * u.units), 0) / NULLIF(SUM(u.units), 0)
 
+COALESCE(expr1, expr2, ..., exprN)
+-- returns the first non-NULL value
+-- e.g. COALESCE(bonus, 0)
+```
 
-# Methods for Replacing NULLs
+---
 
-✅ IFNULL(SUM(p.price * u.units), 0) / NULLIF(SUM(u.units), 0), 
+## 📤 when the query result is a scalar, how to bring it out?
 
-✅ COALESCE(expr1, expr2, ..., exprN) returns the first non-NULL value from the list of expressions.
-e.g., COALESCE(bonus, 0)
+Using scalar subqueries (when JOIN not possible)
 
+**Option 1**: scalar subquery in SELECT
 
-# when the query result is a scalar, how to bring it out?
-Q: I would like to bring a single value, total_user_num, for further use, and there is no chance to do the join operation, what should I do to successfully use this value in the future query?
+```sql
+SELECT
+  contest_id,
+  ROUND(COUNT(*) / (SELECT COUNT(*) FROM Users), 2) AS percentage
+FROM Register
+GROUP BY contest_id;
+```
 
-✅ Option 1: Use a Scalar Subquery (Cleanest for Your Case)
+**Option 2**: CROSS JOIN a one-row (scalar result) CTE
 
-✅ Option 2: Use a CROSS JOIN (only if you must use a CTE)
-🔹 CROSS JOIN adds the scalar total_user_num to every row — no matching needed.
+```sql
+WITH total_usr AS (
+  SELECT COUNT(*) AS total_user_num FROM Users
+)
+SELECT r.contest_id, COUNT(*) / t.total_user_num AS percentage
+FROM Register AS r
+CROSS JOIN total_usr AS t
+GROUP BY r.contest_id;
+```
 
-# notes to SELECT a subquery
-SELECT 
-  contest_id, 
---   ROUND((COUNT(1) / SELECT COUNT(1) FROM Users) * 100, 2)*100 AS percentage
--- # we need another set of brackets to do the subquery
-  ROUND((COUNT(1) / (SELECT COUNT(1) FROM Users)) * 100, 2) AS percentage  
+---
 
-# notes to ORDER BY
--- ORDER BY (percentage DESC), (contest_id ASC)
-ORDER BY percentage DESC, contest_id ASC
+## 🧠 Variables in MySQL
 
+- session variable
+- local variable
+- global variable
 
-# types of variables
+| Type       | Syntax                  | Scope     | Persistence         | Use Case                        |
+|------------|-------------------------|-----------|----------------------|----------------------------------|
+| `@var`     | `SET @var = value`      | Session   | Until disconnect     | Ad-hoc or scripting              |
+| `DECLARE`  | In BEGIN...END block    | Local     | Procedure lifetime   | Stored procedures, triggers     |
 
-Variable | Syntax | Scope | Persistence | Use Case
-@var | @var = val | Session | Until disconnect | Temp value in session
-DECLARE var | Inside block | Local | Limited to the block | Stored procedures/functions
-
-## session variable: @
+### session variable: @
 
 ✅ In MySQL, you can declare and use variables like this:
 🔹 1. Assigning a value to a variable:
+```sql
 SET @total_users = (SELECT COUNT(*) FROM Users);
 Now @total_users holds the count of users.
+```
 
 🔐 Is @x Global or Local?
 
@@ -171,57 +200,30 @@ Not thread-safe: In multi-user apps (e.g., web apps), avoid relying on @ variabl
 Won’t persist if you disconnect: Once you close your session/connection, the variable is gone.
 
 
-## local variable (only in stored procedures):
+### local variable (only in stored procedures):
 
+```sql
 DECLARE total_users INT;
 SET total_users = (SELECT COUNT(*) FROM Users);
+```
 
 But this only works inside:
 - Stored procedures
 - Triggers
 - BEGIN...END blocks
 
-# how to concat results vertically (vertical concatenation)?
+---
 
-e.g. 
+## 🔗 Vertical Concatenation (UNION)
 
-result 1:
+Example:
 
-id
---
-1
-2
-
-result 2:
-
-id
---
-3
-
-after concat:
-
-final result:
-
-id
---
-1
-2
-3
-
-✅ Use UNION or UNION ALL
-🔹 If you want unique values only (no duplicates):
-SELECT id FROM table1
-UNION
-SELECT id FROM table2;
-
-- This removes duplicates.
-- Sort order is not guaranteed unless you add ORDER BY.
-
-🔹 If you want to keep all values including duplicates:
-
+```sql
 SELECT id FROM table1
 UNION ALL
-SELECT id FROM table2;
+SELECT id FROM table2
+ORDER BY id;
+```
 
-- Faster than UNION (no deduplication).
-- Returns all rows.
+- ✅ `UNION` → removes duplicates; sort order is not guaranteed unless you add ORDER BY
+- ✅ `UNION ALL` → returns all rows (faster)
