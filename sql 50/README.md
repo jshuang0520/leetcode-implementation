@@ -225,7 +225,9 @@ a* | aaa | ✅ | 3 as
 a+ | "" | ❌ | Needs at least one a
 a+ | aa | ✅ | Two as is fine
 
-🧠 Bonus: Escape the dot if you want a literal period
+#### Escape symbol in `SQL doing REGEXP`: use double back slahes `\\` e.g. `\\.`
+
+- Escape the dot if you want a literal period
 
 ```sql
 REGEXP 'example\\.com'
@@ -233,6 +235,26 @@ REGEXP 'example\\.com'
 ✅ Matches `example.com`  
 ❌ Doesn't match `exampleXcom`
 
+- MySQL interprets `\.` as an escaped dot in the SQL string, not in regex
+❌ wrong way in sql doing REGEXP
+```sql
+SELECT 'example.com' REGEXP 'example\.com';  -- ❌ Likely syntax error or wrong match
+```
+
+✅ Example in MySQL:
+
+```sql
+SELECT 'example.com' REGEXP 'example\\.com';  -- ✅ Matches
+```
+Here’s what’s happening:
+- `example\\.com` → MySQL string parser turns this into → `example\.com`
+- The regex engine then sees → `\.` → which matches a literal `.`
+
+
+Context | Regex for literal dot | Notes
+|-------|-------|-------|
+MySQL | `example\\.com` | Use double backslash
+Python regex | `r'example\.com'` | Use raw string or escape it
 
 - Example: [1527. Patients With a Condition](https://leetcode.com/problems/patients-with-a-condition/description)
 
