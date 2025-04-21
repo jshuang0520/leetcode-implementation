@@ -248,6 +248,24 @@ WHERE conditions COLLATE utf8mb4_general_ci REGEXP '(^| )DIAB1[^ ]*($| )'
 | `[^ABC]`                             | One character that is **not** A, B, or C    |
 | `DIAB1[^ ]*`                         | `DIAB1` followed by any non-space characters |
 
+### concat strings
+
+- example: [1484. Group Sold Products By The Date](https://leetcode.com/problems/group-sold-products-by-the-date/description)
+
+- GROUP_CONCAT to get them sorted lexicographically, and then concat those strings
+```sql
+GROUP_CONCAT(col ORDER BY col ASC SEPARATOR ',') AS new_column
+```
+
+```sql
+SELECT 
+  sell_date,
+  COUNT(DISTINCT(product)) AS num_sold,
+  GROUP_CONCAT(DISTINCT(product) ORDER BY product ASC SEPARATOR ',') AS products
+FROM Activities
+GROUP BY sell_date
+ORDER BY sell_date;
+```
 
 ### getting substrings
 
@@ -569,4 +587,33 @@ WHERE (e1.salary < 30000)
   AND (e1.manager_id IS NOT NULL)
   AND (e2.employee_id IS NULL)
 ORDER BY employee_id
+```
+
+## Drop Duplicates: in-place DELETE
+
+- note. you cannot in-place update the table which is the same as the one specified in your FROM statement
+- ❌ wrong query
+```sql
+DELETE FROM Person
+WHERE id NOT IN (
+    SELECT MIN(id) AS id
+    FROM Person
+    GROUP BY email
+);  -- Runtime Error: You can't specify target table 'Person' for update in FROM clause
+```
+since following error will occur
+```Runtime Error: You can't specify target table 'Person' for update in FROM clause```
+
+
+### ✅ solution: create another temp table
+```sql
+WITH tbl_non_duplicated_id AS (
+    SELECT MIN(id) AS id
+    FROM Person
+    GROUP BY email
+)  -- thus we make another temp table
+DELETE FROM Person
+WHERE id NOT IN (
+    SELECT id FROM tbl_non_duplicated_id -- and make use of that temp table here
+);
 ```
