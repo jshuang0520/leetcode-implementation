@@ -150,7 +150,54 @@ COALESCE(expr1, expr2, ..., exprN)
 
 ---
 
-## keyword matching in a certain pattern
+## String operations
+
+- example: [1667. Fix Names in a Table](https://leetcode.com/problems/fix-names-in-a-table/description/)
+
+### getting substrings
+
+#### SUBSTRING
+✅ SUBSTRING(str, start, length)
+```sql
+SUBSTRING(string, start_position, [length])
+```
+- if the last argument, length, is not specified, select it till the end
+
+```sql
+SELECT SUBSTRING('HelloWorld', 2, 3);  -- Result: 'ell'
+-- Starts at position 2 → 'e', and takes 3 characters → 'e', 'l', 'l'
+
+
+SELECT SUBSTRING('HelloWorld', 6);     -- Result: 'World'
+-- Starts at position 6 → returns the rest of the string
+```
+
+```sql
+SELECT 
+  user_id, 
+  CONCAT(UPPER(SUBSTRING(name, 1, 1)), LOWER(SUBSTRING(name, 2))) AS name
+FROM Users
+ORDER BY user_id
+```
+
+#### LEFT
+✅ LEFT(str, length)
+```sql
+LEFT(string, n)
+```
+- Starts from position 1 (the beginning of the string)
+- Returns n characters
+
+```sql
+SELECT LEFT('HelloWorld', 5);  -- Result: 'Hello'
+```
+
+### alter alphabet's cases
+
+- UPPER()
+- LOWER()
+
+### keyword matching in a certain pattern
 
 🔍 Finding Keywords in a VARCHAR Column
 
@@ -164,7 +211,7 @@ WHERE column_name NOT LIKE '%math%' AND column_name IS NOT NULL
 
 ---
 
-## math operation
+## Math operations
 
 📉 Select odd-numbered IDs
 
