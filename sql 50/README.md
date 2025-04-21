@@ -152,9 +152,106 @@ COALESCE(expr1, expr2, ..., exprN)
 
 ## String operations
 
-- example: [1667. Fix Names in a Table](https://leetcode.com/problems/fix-names-in-a-table/description/)
+### regular expression (REGEXP Syntax)
+🔣 Common REGEXP Symbols and Meanings
+
+| Symbol        | Meaning                                                                 |
+|---------------|-------------------------------------------------------------------------|
+| `^`           | Start of string (**outside** brackets)                                  |
+| `[^...]`      | NOT (negation) **inside** a character set `[^...]`                      |
+| `$`           | End of string                                                           |
+| `[]`          | Character set — match **one** character from the set                    |
+| `[^...]`      | Negated character set — match one character **not** in the set          |
+| `\|`           | OR — used between alternatives                                          |
+| `()`          | Grouping pattern logic                                                  |
+| `?`           | Match **zero or one (0 or 1)** of the preceding character (optional)             |
+| `*`           | Match **zero or more (appearance ≥ 0)** of the preceding character or group              |
+| `+`           | Match **one or more (appearance ≥ 1)** of the preceding character or group               |
+| `.`           | Match **any single character** except newline (`\n`)                  |
+
+🧠 Key Differences Between Similar Patterns
+
+- `*` = (appearance ≥ 0), can match nothing
+- `+` = (appearance ≥ 1), must match at least once
+
+| Pattern     | Meaning                                      | ✅ Matches        | ❌ Doesn’t Match    |
+|-------------|----------------------------------------------|----------------|------------------|
+| `a?`        | 0 or 1 `a`                                   | `""`, `a`       | `aa`, `b`        |
+| `a*`        | 0 or more `a`                                | `""`, `a`, `aaa`| `b`              |
+| `a+`        | 1 or more `a`                                | `a`, `aa`       | `""`, `b`        |
+| `a.`        | `a` followed by any one character            | `ab`, `a1`      | `a`              |
+| `a.*b`      | `a`, anything in between, then `b`           | `ab`, `axxb`    | `b`, `a`         |
+
+
+Pattern | Input | Match? | Why
+|-------|-------|-------|-------|
+a* | "" | ✅ | 0 as is okay
+a* | aaa | ✅ | 3 as
+a+ | "" | ❌ | Needs at least one a
+a+ | aa | ✅ | Two as is fine
+
+🧠 Bonus: Escape the dot if you want a literal period
+
+```sql
+REGEXP 'example\\.com'
+```
+✅ Matches `example.com`  
+❌ Doesn't match `exampleXcom`
+
+
+- Example: [1527. Patients With a Condition](https://leetcode.com/problems/patients-with-a-condition/description)
+
+```sql
+SELECT patient_id, patient_name, conditions
+FROM Patients
+-- WHERE conditions LIKE '%DIAB1%'  -- this is wrong, since it will match 'ABCDIAB10000' and that not we want
+WHERE conditions REGEXP '(^| )DIAB1[A-Z0-9]*( |$)'
+```
+
+#### ✅ Example 1: Match "DIAB1" token with proper boundaries
+
+```sql
+WHERE conditions REGEXP '(^| )DIAB1[^ ]*($| )'
+```
+
+- `(^| )` — beginning of string or a space
+- `DIAB1` — must literally start with "DIAB1"
+- `[^ ]*` — zero or more non-space characters (the rest of the code)
+  - that is to say, `DIAB1[^ ]*` means `DIAB1` followed by any non-space characters 
+- `($| )` — must be followed by end-of-string or a space
+
+❌ Does NOT match:
+- `ASDIAB1BB`  → embedded in another word
+- `0DIAB1A`    → no boundary before `DIAB1`
+
+
+🧠 Bonus: Case-insensitive matching
+
+```sql
+WHERE LOWER(conditions) REGEXP '(^| )diab1[^ ]*($| )'
+```
+
+or using collation (MySQL 8+):
+
+```sql
+WHERE conditions COLLATE utf8mb4_general_ci REGEXP '(^| )DIAB1[^ ]*($| )'
+```
+
+🧪 More Examples
+
+| REGEXP Expression                     | ✅ Matches                                     |
+|--------------------------------------|---------------------------------------------|
+| `^abc`                               | Strings that **start with** `abc`           |
+| `abc$`                               | Strings that **end with** `abc`             |
+| `a|b`                                | Strings that contain `a` **or** `b`         |
+| `[ABC]`                              | One character that is either A, B, or C     |
+| `[^ABC]`                             | One character that is **not** A, B, or C    |
+| `DIAB1[^ ]*`                         | `DIAB1` followed by any non-space characters |
+
 
 ### getting substrings
+
+- example: [1667. Fix Names in a Table](https://leetcode.com/problems/fix-names-in-a-table/description/)
 
 #### SUBSTRING
 ✅ SUBSTRING(str, start, length)
