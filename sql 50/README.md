@@ -72,6 +72,41 @@ WHERE temperature > lag_temp;
 
 ## 📅 date operation
 
+### filter dates 
+
+- formula
+```sql
+-- method 1
+WHERE ('YYYY-MM-DD' <= order_date) AND (order_date <= 'YYYY-MM-DD')
+-- method 2
+WHERE YEAR(order_date)='2020' AND MONTH(order_date)='02'
+```
+
+- example: [1327. List the Products Ordered in a Period](https://leetcode.com/problems/list-the-products-ordered-in-a-period/description)
+
+```sql
+WITH tbl_Feb_order AS (
+    SELECT product_id, unit
+    FROM Orders
+    -- WHERE order_date BETWEEN 2020-02-01 AND 2020-02-30  -- incorrect format for dates, since single quotes are needed
+    -- WHERE order_date BETWEEN '2020-02-01' AND '2020-02-28'  -- not so sure how many days are there in Feb, but those two dates are included: it is equivalent to WHERE ('2020-02-01' <= order_date) AND (order_date < '2020-03-01')
+
+    WHERE YEAR(order_date)='2020' AND MONTH(order_date)='02'
+    -- WHERE ('2020-02-01' <= order_date) AND (order_date < '2020-03-01')
+)
+SELECT 
+  p.product_name, 
+  SUM(o.unit) AS unit
+FROM Products AS p
+-- LEFT JOIN tbl_Feb_order AS o  -- wrong, LEFT JOIN will get an incorrect answer here
+RIGHT JOIN tbl_Feb_order AS o
+  ON p.product_id = o.product_id
+GROUP BY product_name
+HAVING unit >= 100
+ORDER BY unit DESC
+```
+
+
 ### DATEDIFF
 
 To find "yesterday":
