@@ -583,6 +583,22 @@ FROM Triangle;
 
 ## SELF JOIN
 
+🔁 When to Use a Self Join in MySQL
+
+A **self join** is when a table is joined with itself. This is useful when you need to **compare rows within the same table**, such as matching people, building hierarchies, or tracking changes.
+
+
+✅ Common Use Cases
+
+| Use Case                          | Description                                            |
+|-----------------------------------|--------------------------------------------------------|
+| Compare rows within same table    | Find employees who share the same manager             |
+| Parent-child relationships        | Find a manager's direct reports                       |
+| Time-sequenced row comparisons    | Compare current vs. previous row in same table        |
+| Detect duplicates                 | Find users with same email/phone                      |
+| Difference calculations           | Compute difference between related rows (e.g. salary) |
+
+
 - example: [1978. Employees Whose Manager Left the Company](https://leetcode.com/problems/employees-whose-manager-left-the-company/)
 
 - let's break it down
