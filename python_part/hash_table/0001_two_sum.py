@@ -1,15 +1,25 @@
 # -*- coding: utf-8 -*-
-from collections import defaultdict
-from typing import List
-# from utility.utils import Logger, timeit
-
-
 """
 Hash Table
 0001    Two Sum
 https://leetcode.com/problems/two-sum/
 """
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = dict()  # key: num, val: its idx
+        for i in range(0, len(nums)):
+            diff = target - nums[i]
+            if diff in seen:
+                return [i, seen[diff]]
+            seen[nums[i]] = i
+        return [-1, -1]
+    
 
+# -------------------------------------------------------------------------------------------------
+
+from collections import defaultdict
+from typing import List
+# from utility.utils import Logger, timeit
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
